@@ -1,5 +1,5 @@
 from fastapi import APIRouter, Query
-from app.services.embedding_service import EmbeddingService
+from app.services.embedding.embedding_service import EmbeddingService
 
 router = APIRouter(prefix="/search", tags=["search"])
 

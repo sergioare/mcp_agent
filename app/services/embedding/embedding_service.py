@@ -67,13 +67,10 @@ class EmbeddingService:
         3. Genera embeddings para cada chunk.
         4. Los almacena en la base vectorial (Redis).
         """
-        # 🔸 (1) Extraer texto del archivo - se implementará en utils
+        
         text = extract_text_from_file(file_path)
-        text = ""  # Placeholder temporal hasta conectar utils
 
-        # 🔸 (2) Dividir en chunks - se implementará en utils
         chunks = split_into_chunks(text)
-        chunks = []  # Placeholder temporal
 
         # Validación básica
         if not chunks:

@@ -1,6 +1,6 @@
 # app/routes/upload.py
 from fastapi import APIRouter, UploadFile, File, Form
-from app.services.storage_service import StorageService
+from app.services.storage.storage_service import StorageService
 
 router = APIRouter(prefix="/upload", tags=["upload"])
 storage_service = StorageService()

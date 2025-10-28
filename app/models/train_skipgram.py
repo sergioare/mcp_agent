@@ -10,12 +10,8 @@ def train_skipgram(model, loss_function, optimizer, data_loader, num_epochs=1000
     for epoch in range(num_epochs):
         total_loss = 0
         for center, context in data_loader:
-            center_vector = torch.zeros(len(data_loader.dataset.vocab))
-            center_vector[center] = 1.0
-            center_vector = center_vector.unsqueeze(0)
-            scores = model(center_vector)
-
-            loss = loss_function(scores, torch.tensor([context]))
+            scores = model(center)
+            loss = loss_function(scores, context)
             optimizer.zero_grad()
             loss.backward()
             optimizer.step()

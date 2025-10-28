@@ -1,5 +1,6 @@
 from typing import List
 from app.adapters.storage.local_file_storage import LocalFileStorageAdapter
+from app.utils.chunk_splitter import split_into_chunks
 
 class StorageService:
     """
@@ -15,6 +16,15 @@ class StorageService:
         Guarda un documento dividido en chunks y retorna su ID único.
         """
         return self.adapter.save(chunks)
+    
+    def save_raw(self, filename: str, content: str) -> str:
+        """Split content into chunks and save"""
+        chunks = split_into_chunks(content)
+        return self.adapter.save(chunks)
+
+    def get_chunks(self, doc_id: str) -> List[str]:
+        """Alias for load_document"""
+        return self.adapter.load(doc_id)
 
     def load_document(self, doc_id: str) -> List[str]:
         """

@@ -13,6 +13,9 @@ class Settings(BaseSettings):
     REDIS_DB: int = 0
     REDIS_PASSWORD: str | None = None
 
+    EMBEDDING_DIM: int = 300
+    MODEL_PATH: Path = MODEL_DIR / "skipgram.pt"
+    VOCAB_PATH: Path = MODEL_DIR / "skipgram_vocab.json"
     EMBEDDING_SIZE: int = 300
     WINDOW_SIZE: int = 2
     LEARNING_RATE: float = 0.001

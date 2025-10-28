@@ -1,7 +1,7 @@
 # app/routes/embed.py
 from fastapi import APIRouter, HTTPException
-from app.services.embedding_service import EmbeddingService
-from app.services.storage_service import StorageService
+from app.services.embedding.embedding_service import EmbeddingService
+from app.services.storage.storage_service import StorageService
 
 router = APIRouter(prefix="/embed", tags=["embedding"])
 

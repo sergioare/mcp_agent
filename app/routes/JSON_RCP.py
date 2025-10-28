@@ -1,7 +1,7 @@
 from fastapi import APIRouter, Request
-from app.services.embedding_service import EmbeddingService
-from app.services.storage_service import StorageService
-from app.services.training_service import TrainingService
+from app.services.embedding.embedding_service import EmbeddingService
+from app.services.storage.storage_service import StorageService
+from app.services.training.training_service import TrainingService
 import uuid
 from typing import Dict, Any
 

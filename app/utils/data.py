@@ -1,4 +1,4 @@
-import regex as re   # Usamos 'regex' en lugar de 're' para soporte de \p{L}, \p{M}
+import regex as re  
 import unicodedata
 
 def clean_text(text: str) -> str:

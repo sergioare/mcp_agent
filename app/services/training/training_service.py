@@ -9,7 +9,9 @@ from torch.utils.data import DataLoader
 
 from app.adapters.storage.local_file_storage import LocalFileStorageAdapter
 from app.utils.config import settings
-from models.skipgram_model import SkipGramDataset, SkipGramModel, train_skipgram
+from app.models.skipgram_dataset import SkipGramDataset
+from app.models.skipgram_model import SkipGramModel
+from app.models.train_skipgram import train_skipgram
 
 class TrainingService:
     """
