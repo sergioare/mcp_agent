@@ -6,7 +6,7 @@ import numpy as np
 import torch
 from torch import nn
 from app.core.ports.embedder import EmbedderInterface
-from models.skipgram_model import SkipGramModel  
+from app.models.skipgram_model import SkipGramModel  
 from app.utils.config import settings
 
 class TorchSkipGramEmbedderAdapter(EmbedderInterface):

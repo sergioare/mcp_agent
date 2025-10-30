@@ -3,8 +3,8 @@ import torch.optim as optim
 import torch.nn as nn
 from torch.utils.data import DataLoader
 
-from models.skipgram_dataset import SkipGramDataset
-from models.skipgram_model import SkipGramModel
+from app.models.skipgram_dataset import SkipGramDataset
+from app.models.skipgram_model import SkipGramModel
 
 def train_skipgram(model, loss_function, optimizer, data_loader, num_epochs=1000):
     for epoch in range(num_epochs):

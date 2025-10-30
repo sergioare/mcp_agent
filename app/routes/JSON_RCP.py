@@ -42,7 +42,7 @@ async def mcp_http_entry(request: Request) -> Dict[str, Any]:
             if not doc_id:
                 return {"jsonrpc":"2.0", "error": {"code":400, "message":"Missing doc_id"}, "id": req_id}
             chunks = STORAGE_SVC.get_chunks(doc_id)
-            out = EMBED_SVC.process_and_store(doc_id, chunks)
+            out = EMBED_SVC.embed_and_store(doc_id, chunks)
             return {"jsonrpc":"2.0", "result": out, "id": req_id}
 
         if method == "search_embeddings":
@@ -50,7 +50,7 @@ async def mcp_http_entry(request: Request) -> Dict[str, Any]:
             top_k = int(params.get("top_k", 5))
             if not query:
                 return {"jsonrpc":"2.0", "error": {"code":400, "message":"Missing query"}, "id": req_id}
-            res = EMBED_SVC.semantic_search(query, top_k=top_k)
+            res = EMBED_SVC.query_similar_chunks(query, top_k=top_k)
             return {"jsonrpc":"2.0", "result": {"results": res}, "id": req_id}
 
         if method == "train_model":
