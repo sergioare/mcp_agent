@@ -17,5 +17,5 @@ async def generate_embeddings(doc_id: str):
     if not chunks:
         raise HTTPException(status_code=404, detail="Document not found or empty")
 
-    result = embed_service.process_and_store(doc_id, chunks)
+    result = embed_service.embed_and_store(doc_id, chunks)
     return {"status": "ok", "processed_chunks": len(chunks), "result": result}

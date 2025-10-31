@@ -35,6 +35,17 @@ class TrainingService:
         for doc_id in doc_ids:
             chunks = self.storage.load(doc_id)
             all_sentences.extend(chunks)
+        if not all_sentences:
+            # Si la lista está vacía, no hay nada que entrenar.
+            # Debes retornar un mensaje de error y evitar el resto de la función.
+            # Lanza una excepción controlada aquí.
+            # Por ejemplo, puedes usar HTTPException de FastAPI (si está disponible aquí):
+            # from fastapi import HTTPException
+            # raise HTTPException(status_code=400, detail="No se pudo cargar texto de los IDs proporcionados. Dataset vacío.")
+            
+            # O simplemente retorna un error de forma segura:
+            print("⚠️ ERROR: No se encontró texto para los IDs de documentos proporcionados.")
+            return { "error": "No hay datos para entrenar." } # Retorna para salir de la función
 
         # 2️⃣ Crear dataset y modelo
         dataset = SkipGramDataset(all_sentences)
